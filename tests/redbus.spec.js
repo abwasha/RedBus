@@ -8,7 +8,7 @@ test('@Red Red bus challenge', async ({ page }) => {
     let holiday_count,monthYear,Year,Month
 
     let counter = 0
-    const inputDate = "Feb 2025"
+    const inputDate = "Sep 2024"
 
     const daysInMonth = new Map();
 
@@ -22,6 +22,8 @@ test('@Red Red bus challenge', async ({ page }) => {
     // February is handled separately for leap years
     daysInMonth.set('Sep', 28);
 
+    /*This is the base to calculate the first weekend. 
+    As we know in the website the Week always on Monday.*/
     const daysOfWeek = new Map([
         ['Mon', 7],
         ['Tue', 6],
@@ -30,8 +32,7 @@ test('@Red Red bus challenge', async ({ page }) => {
         ['Fri', 3],
         ['Sat', 2],
         ['Sun', 1]
-    ]);
-   
+    ]);   
 
     do {
         const websiteDateElement = await page.locator('div[class^="DayNavigator__CalendarHeader"] div:nth-child(2)');
@@ -42,7 +43,6 @@ test('@Red Red bus challenge', async ({ page }) => {
             : 'No Holidays');
 
         [monthYear, Year, Month] = splitText(websiteDate);
-       // console.log(`${monthYear}---${holiday_count}---in the year ${Year} forn the month ${Month}`);
         console.log(`${monthYear}---${holiday_count}`);
 
         // Leap Year setttings
@@ -56,7 +56,12 @@ test('@Red Red bus challenge', async ({ page }) => {
         const numberOfDaysInTheCurrentMonth= daysInMonth.get(Month)
         const dayOfThefirstDayOfMonth = [...daysOfWeek].find(([key, val]) => val == positionOfTheFirstDayOfMonth)[0]
         const counterToGetTheFirstDayOfTheWeekend=adjustValue(dayOfThefirstDayOfMonth,positionOfTheFirstDayOfMonth)
-
+        /*
+        Based on the the first day on the current month, I need a counter to calculate the first Saturday.
+        For example, if the First day in March 2024 starts On Friday, my Counter will be calculated using the 
+        daysOfWeek Map value mapped for Friday and the function adjustValue, in this case 3-2=1.
+        Then addWeekednDatesToList function will basically calculate Sat and Sun and add to the Array.
+        */
         const weekendList = addWeekednDatesToList(new Array(), numberOfDaysInTheCurrentMonth, counterToGetTheFirstDayOfTheWeekend)
         console.log('WeekendList for '+ monthYear+ ' is = [' +weekendList+']')
 

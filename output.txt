@@ -1,0 +1,23 @@
+PS C:\Playwright\RedBus> npx playwright test
+
+Running 1 test using 1 worker
+[chromium] › redbus.spec.js:3:5 › @Red Red bus challenge
+Mar 2024---3 Holidays
+WeekendList for Mar 2024 is = [23,24,30,31]
+Apr 2024---4 Holidays
+WeekendList for Apr 2024 is = [6,7,13,14,20,21,27,28]
+May 2024---2 Holidays
+WeekendList for May 2024 is = [4,5,11,12,18,19,25,26]                                                                               
+Jun 2024---No Holidays
+WeekendList for Jun 2024 is = [1,2,8,9,15,16,22,23,29,30]                                                                           
+Jul 2024---1 Holiday
+WeekendList for Jul 2024 is = [6,7,13,14,20,21,27,28]                                                                               
+Aug 2024---3 Holidays
+WeekendList for Aug 2024 is = [3,4,10,11,17,18,24,25,31]                                                                            
+Sep 2024---2 Holidays
+WeekendList for Sep 2024 is = [1,7,8,14,15,21,22,28]                                                                                
+  1 passed (5.8s)
+
+To open last HTML report run:
+
+  npx playwright show-report
