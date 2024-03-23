@@ -23,7 +23,7 @@ test('@Red Red bus challenge', async ({ page }) => {
     daysInMonth.set('Sep', 28);
 
     /*This is the base to calculate the first weekend. 
-    As we know in the website the Week always on Monday.*/
+    As we know in the website the Week always starts on Monday.*/
     const daysOfWeek = new Map([
         ['Mon', 7],
         ['Tue', 6],
