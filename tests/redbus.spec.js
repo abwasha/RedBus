@@ -20,7 +20,7 @@ test('@Red Red bus challenge', async ({ page }) => {
     monthsWith31Days.forEach(month => daysInMonth.set(month, 31));
     monthsWith30Days.forEach(month => daysInMonth.set(month, 30));
     // February is handled separately for leap years
-    daysInMonth.set('Sep', 28);
+    daysInMonth.set('Feb', 28);
 
     /*This is the base to calculate the first weekend. 
     As we know in the website the Week always starts on Monday.*/
